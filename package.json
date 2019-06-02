@@ -1,5 +1,5 @@
 {
-  "name": "websocket-heartbeat-js",
+  "name": "websocket-heartbeat-author-js",
   "version": "1.0.8",
   "description": "websocket heartbeat",
   "main": "./dist/index.js",
