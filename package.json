@@ -1,6 +1,6 @@
 {
   "name": "websocket-heartbeat-protocol",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "websocket heartbeat",
   "main": "./dist/index.js",
   "scripts": {
@@ -37,14 +37,14 @@
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "chai": "^4.2.0",
-    "conventional-changelog-cli": "^2.0.5",
-    "eslint": "^5.6.1",
+    "conventional-changelog-cli": "^2.0.22",
+    "eslint": "^5.16.0",
     "mocha": "^5.2.0",
     "mocha-phantomjs": "^4.1.0",
     "phantomjs-prebuilt": "^2.1.16",
     "pre-commit": "^1.2.2",
-    "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.2"
+    "webpack": "^4.35.3",
+    "webpack-cli": "^3.3.5"
   },
   "babel": {
     "presets": [
@@ -55,8 +55,5 @@
   "directories": {
     "lib": "lib",
     "test": "test"
-  },
-  "dependencies": {
-    "fsevents": "^1.2.4"
   }
 }
