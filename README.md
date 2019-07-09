@@ -1,12 +1,13 @@
 
 ## 介绍
-websocket-heartbeat-protocol-js基于浏览器js原生websocket封装，主要目的是保障客户端websocket与服务端连接状态。该程序有心跳检测及自动重连机制，当网络断开或者后端服务问题造成客户端websocket断开，程序会自动尝试重新连接直到再次连接成功。
+websocket-heartbeat-protocol基于浏览器js原生websocket封装，主要目的是保障客户端websocket与服务端连接状态。该程序有心跳检测及自动重连机制，当网络断开或者后端服务问题造成客户端websocket断开，程序会自动尝试重新连接直到再次连接成功。
 ## 原理
 在使用原生websocket的时候，如果设备网络断开，不会触发任何函数，前端程序无法得知当前连接已经断开。这个时候如果调用websocket.send方法，浏览器就会发现消息发不出去，便会立刻或者一定短时间后（不同浏览器或者浏览器版本可能表现不同）触发onclose函数。
 
 后端websocket服务也可能出现异常，连接断开后前端也并没有收到通知，因此需要前端定时发送心跳消息ping，后端收到ping类型的消息，立马返回pong消息，告知前端连接正常。如果一定时间没收到pong消息，就说明连接不正常，前端便会执行重连。
 
 为了解决以上两个问题，以前端作为主动方，定时发送ping消息，用于检测网络和前后端连接问题。一旦发现异常，前端持续执行重连逻辑，直到重连成功。
+同时在增加心跳检查基础上,兼容websocket Sec-Websocket-Protocol的校验
 ## 约定
 
 ***1.关闭websocket连接***
@@ -27,11 +28,11 @@ websocket-heartbeat-protocol-js基于浏览器js原生websocket封装，主要�
  
 ## 用法
 ### 安装
-    npm install websocket-heartbeat-protocol-js
+    npm install websocket-heartbeat-protocol
 
 ### 引入使用
 
-    import WebsocketHeartbeatJs from 'websocket-heartbeat-protocol-js';
+    import WebsocketHeartbeatJs from 'websocket-heartbeat-protocol';
     let websocketHeartbeatJs = new WebsocketHeartbeatJs({
         url: 'ws://xxxxxxx'
     });
@@ -48,7 +49,7 @@ websocket-heartbeat-protocol-js基于浏览器js原生websocket封装，主要�
 
 #### 或者
 
-    <script src="./node_modules/websocket-heartbeat-protocol-js/dist/index.js"></script>
+    <script src="./node_modules/websocket-heartbeat-protocol/dist/index.js"></script>
     let websocketHeartbeatJs = new window.WebsocketHeartbeatJs({
         url: 'ws://xxxxxxx'
     });
@@ -69,7 +70,7 @@ websocket-heartbeat-js仅仅是封装了心跳相关的钩子函数，websocketH
 | reconnectTimeout | false | number | 2000 | 尝试重连的间隔时间 |
 | pingMsg | false | string | "heartbeat" | ping消息值 |
 | repeatLimit | false | number | null | 重连尝试次数。默认不限制 |
-
+| protocol | false | string | null | 用于后端使用Sec-Websocket-Protocol做权限校验 |
 
     const options = {
         url: 'ws://xxxx',
@@ -77,6 +78,7 @@ websocket-heartbeat-js仅仅是封装了心跳相关的钩子函数，websocketH
         pongTimeout: 10000, 
         reconnectTimeout: 2000,
         pingMsg: "heartbeat"
+        protocol: [store.getters.token, store.getters.name]
     }
     let websocketHeartbeatJs = new WebsocketHeartbeatJs(options);
 
