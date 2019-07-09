@@ -128,6 +128,6 @@ websocketHeartbeatJs.close()
 [初探和实现websocket心跳重连][3]
 
 
-  [1]: https://github.com/zimv/websocket-heartbeat-js/blob/master/README.md
-  [2]: http://htmlpreview.github.io/?https://github.com/zimv/websocket-heartbeat-js/blob/master/demo/index.html
+  [1]: https://github.com/svnshing/websocket-heartbeat-js/blob/master/README.md
+  [2]: http://htmlpreview.github.io/?https://github.com/svnshing/websocket-heartbeat-js/blob/master/demo/index.html
   [3]: http://www.cnblogs.com/1wen/p/5808276.html

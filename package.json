@@ -1,10 +1,10 @@
 {
-  "name": "websocket-heartbeat-protocol-js",
+  "name": "websocket-heartbeat-protocol",
   "version": "1.0.0",
   "description": "websocket heartbeat",
   "main": "./dist/index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha-phantomjs -p ./node_modules/.bin/phantomjs /test/unit/index.html",
+    "test": "mocha-phantomjs -p ./node_modules/.bin/phantomjs /test/unit/index.html",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "build": "node_modules/webpack/bin/webpack.js",
     "lint": "eslint .",
@@ -15,23 +15,23 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zimv/websocket-heartbeat-js.git"
+    "url": "git+https://github.com/svnshing/websocket-heartbeat-js.git"
   },
   "keywords": [
-    "zimv",
+    "svnshing",
     "websocket",
     "heartbeat"
   ],
-  "author": "zimv",
+  "author": "svnshing",
   "license": "MIT",
   "files": [
     "dist",
     "lib"
   ],
   "bugs": {
-    "url": "https://github.com/zimv/websocket-heartbeat-js/issues"
+    "url": "https://github.com/svnshing/websocket-heartbeat-js/issues"
   },
-  "homepage": "https://github.com/zimv/websocket-heartbeat-js#readme",
+  "homepage": "hhttps://github.com/svnshing/websocket-heartbeat-js#readme",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
@@ -55,5 +55,8 @@
   "directories": {
     "lib": "lib",
     "test": "test"
+  },
+  "dependencies": {
+    "fsevents": "^1.2.4"
   }
 }
