@@ -1,6 +1,6 @@
 {
-  "name": "websocket-heartbeat-author-js",
-  "version": "1.0.8",
+  "name": "websocket-heartbeat-protocol-js",
+  "version": "1.0.0",
   "description": "websocket heartbeat",
   "main": "./dist/index.js",
   "scripts": {
@@ -51,5 +51,9 @@
       "env"
     ],
     "plugins": []
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
   }
 }

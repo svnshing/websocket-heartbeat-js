@@ -1,15 +1,6 @@
-[![Build Status](https://travis-ci.org/zimv/websocket-heartbeat-js.svg?branch=master)](https://travis-ci.org/zimv/websocket-heartbeat-js)
-<a href="https://www.npmjs.com/package/websocket-heartbeat-js" alt="NPM latest version"><img src="https://img.shields.io/npm/v/websocket-heartbeat-js.svg"></a>
-<a href="https://npms.io/search?q=websocket-heartbeat-js" alt="NPM latest version"><img src="https://badges.npms.io/websocket-heartbeat-js.svg"></a>
-<a href="https://deepscan.io/dashboard/#view=project&pid=3358&bid=29734"><img src="https://deepscan.io/api/projects/3358/branches/29734/badge/grade.svg" alt="DeepScan Grade"></a>
-<a href="https://www.npmjs.com/package/websocket-heartbeat-js" alt="NPM total downloads"><img src="https://img.shields.io/npm/dt/websocket-heartbeat-js.svg"></a>
-<a href="https://github.com/zimv/websocket-heartbeat-js" alt="Github stars"><img src="https://img.shields.io/github/stars/zimv/websocket-heartbeat-js.svg?style=social&label=Star"></a>
-<a href="https://github.com/zimv/websocket-heartbeat-js" alt="Github forks"><img src="https://img.shields.io/github/forks/zimv/websocket-heartbeat-js.svg?style=social&label=Fork"></a>
-<a href="https://github.com/zimv/websocket-heartbeat-js" alt="Github contributors"><img src="https://img.shields.io/github/contributors/zimv/websocket-heartbeat-js.svg"></a>
 
----
 ## 介绍
-websocket-heartbeat-js基于浏览器js原生websocket封装，主要目的是保障客户端websocket与服务端连接状态。该程序有心跳检测及自动重连机制，当网络断开或者后端服务问题造成客户端websocket断开，程序会自动尝试重新连接直到再次连接成功。
+websocket-heartbeat-protocol-js基于浏览器js原生websocket封装，主要目的是保障客户端websocket与服务端连接状态。该程序有心跳检测及自动重连机制，当网络断开或者后端服务问题造成客户端websocket断开，程序会自动尝试重新连接直到再次连接成功。
 ## 原理
 在使用原生websocket的时候，如果设备网络断开，不会触发任何函数，前端程序无法得知当前连接已经断开。这个时候如果调用websocket.send方法，浏览器就会发现消息发不出去，便会立刻或者一定短时间后（不同浏览器或者浏览器版本可能表现不同）触发onclose函数。
 
@@ -36,11 +27,11 @@ websocket-heartbeat-js基于浏览器js原生websocket封装，主要目的是�
  
 ## 用法
 ### 安装
-    npm install websocket-heartbeat-js
+    npm install websocket-heartbeat-protocol-js
 
 ### 引入使用
 
-    import WebsocketHeartbeatJs from 'websocket-heartbeat-js';
+    import WebsocketHeartbeatJs from 'websocket-heartbeat-protocol-js';
     let websocketHeartbeatJs = new WebsocketHeartbeatJs({
         url: 'ws://xxxxxxx'
     });
@@ -57,7 +48,7 @@ websocket-heartbeat-js基于浏览器js原生websocket封装，主要目的是�
 
 #### 或者
 
-    <script src="./node_modules/websocket-heartbeat-js/dist/index.js"></script>
+    <script src="./node_modules/websocket-heartbeat-protocol-js/dist/index.js"></script>
     let websocketHeartbeatJs = new window.WebsocketHeartbeatJs({
         url: 'ws://xxxxxxx'
     });
