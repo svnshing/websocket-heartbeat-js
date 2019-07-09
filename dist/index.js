@@ -9,14 +9,14 @@
 
         function o(n) {
             if (e[n]) return e[n].exports;
-            var i = e[n] = {i: n, l: !1, exports: {}};
+            var i = e[n] = { i: n, l: !1, exports: {} };
             return t[n].call(i.exports, i, i.exports, o), i.l = !0, i.exports
         }
 
         return o.m = t, o.c = e, o.d = function (t, e, n) {
-            o.o(t, e) || Object.defineProperty(t, e, {enumerable: !0, get: n})
+            o.o(t, e) || Object.defineProperty(t, e, { enumerable: !0, get: n })
         }, o.r = function (t) {
-            "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(t, Symbol.toStringTag, {value: "Module"}), Object.defineProperty(t, "__esModule", {value: !0})
+            "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(t, Symbol.toStringTag, { value: "Module" }), Object.defineProperty(t, "__esModule", { value: !0 })
         }, o.t = function (t, e) {
             if (1 & e && (t = o(t)), 8 & e) return t;
             if (4 & e && "object" == typeof t && t && t.__esModule) return t;
@@ -42,16 +42,17 @@
         "use strict";
 
         function n(t) {
-            var e = t.url, o = t.pingTimeout, n = void 0 === o ? 15e3 : o, i = t.pongTimeout,
-                r = void 0 === i ? 1e4 : i, c = t.reconnectTimeout, s = void 0 === c ? 2e3 : c, u = t.pingMsg,
-                p = void 0 === u ? "heartbeat" : u, f = t.repeatLimit, a = void 0 === f ? null : f;
+            var e = t.url, o = t.pingTimeout, n = void 0 === o ? 15e3 : o, i = t.pongTimeout, r = void 0 === i ? 1e4 : i,
+                c = t.reconnectTimeout, s = void 0 === c ? 2e3 : c, u = t.pingMsg, p = void 0 === u ? "heartbeat" : u,
+                f = t.repeatLimit, a = void 0 === f ? null : f, g = t.protocol ? t.protocol : [];
             this.opts = {
                 url: e,
                 pingTimeout: n,
                 pongTimeout: r,
                 reconnectTimeout: s,
                 pingMsg: p,
-                repeatLimit: a
+                repeatLimit: a,
+                protocol: g
             }, this.ws = null, this.repeat = 0, this.onclose = function () {
             }, this.onerror = function () {
             }, this.onopen = function () {
@@ -60,9 +61,9 @@
             }, this.createWebSocket()
         }
 
-        Object.defineProperty(e, "__esModule", {value: !0}), n.prototype.createWebSocket = function () {
+        Object.defineProperty(e, "__esModule", { value: !0 }), n.prototype.createWebSocket = function () {
             try {
-                this.ws = new WebSocket(this.opts.url), this.initEventHandle()
+                this.ws = new WebSocket(this.opts.url, this.opts.protocol), this.initEventHandle()
             } catch (t) {
                 throw this.reconnect(), t
             }
